@@ -9,9 +9,9 @@ const app = new Vue (
                     position: 'Developer',
                     description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
                     created_at: '5/22/2021',
-                    logo: 'logo.jpg',
+                    logo: './img/logo.jpg',
                     city: 'Roma',
-                    contract: 'Full Time'
+                    contract: 'Stage'
                 },
                 {
                     id: 2,
@@ -19,8 +19,8 @@ const app = new Vue (
                     position: 'Developer',
                     description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
                     created_at: '5/22/2021',
-                    logo: 'logo.jpg',
-                    city: 'Roma',
+                    logo: './img/logo.jpg',
+                    city: 'Torino',
                     contract: 'Full Time'
                 },
                 {
@@ -29,8 +29,8 @@ const app = new Vue (
                     position: 'Developer',
                     description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
                     created_at: '5/22/2021',
-                    logo: 'logo.jpg',
-                    city: 'Roma',
+                    logo: './img/logo.jpg',
+                    city: 'Genova',
                     contract: 'Full Time'
                 },
                 {
@@ -39,9 +39,9 @@ const app = new Vue (
                     position: 'Developer',
                     description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
                     created_at: '5/22/2021',
-                    logo: 'logo.jpg',
-                    city: 'Roma',
-                    contract: 'Full Time'
+                    logo: './img/logo.jpg',
+                    city: 'Palermo',
+                    contract: 'Part Time'
                 },
                 {
                     id: 5,
@@ -49,19 +49,53 @@ const app = new Vue (
                     position: 'Developer',
                     description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
                     created_at: '5/22/2021',
-                    logo: 'logo.jpg',
-                    city: 'Roma',
+                    logo: './img/logo.jpg',
+                    city: 'Milano',
+                    contract: 'Stage'
+                },
+                {
+                    id: 6,
+                    company: 'Perferendis',
+                    position: 'Developer',
+                    description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
+                    created_at: '5/22/2021',
+                    logo: './img/logo.jpg',
+                    city: 'Parma',
                     contract: 'Full Time'
                 },
             ],
-            starred: [2, 4],
+            starred: [2, 3, 6],
             applied: [4, 5],
-            iconaPositiva: "icona-positiva",
-            iconaNegativa: "icona-negativa",
+
         },
         methods: {
-
+            preferito: function (index) {
+                this.jobIndex = index;
+            },
+            aggiungi: function (index) {
+                if (!this.starred.includes(index)) {
+                    this.starred.push(index);
+                }
+            },
+            rimuovi: function (index) {
+                if (this.starred.includes(index)) {
+                    let preferito = this.starred.indexOf(index);
+                    this.starred.splice(preferito, 1);
+                }
+            },
+            aggiungiApply: function (index) {
+                if (!this.applied.includes(index)) {
+                    this.applied.push(index);
+                }
+                let preferito = this.starred.indexOf(index);
+                this.starred.splice(preferito, 1);
+                this.annuncio ();
+            },
+            annuncio: function () {
+                setTimeout(() => {
+                    alert("Candidatura inviata con successo");
+                }, 1000);
+            }
         },           
     },
 );
-

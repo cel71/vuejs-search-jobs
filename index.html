@@ -13,15 +13,26 @@
     
     <div id="app">
 
-        <div v-for="(annunci, index) in jobs" :key="annunci.id" class="box">
-            <div>{{annunci.id}}<i class="fas fa-heart" @click="nuovoPreferito(annunci)"></i></div>
-            <div>{{annunci.company}}</div>
-            <div>{{annunci.position}}</div>
-            <p>{{annunci.description}}</p>
-            <div>{{annunci.created_at}}</div>
-            <div>{{annunci.logo}}</div>
-            <div>{{annunci.city}}</div>
-            <div>{{annunci.contract}}</div>
+        <div v-for="(annunci, index) in jobs" class="box">
+            <div class="id">
+                <span>ID:</span> {{annunci.id}}
+                <div>
+                    <i class="far fa-heart" v-if="!starred.includes(annunci.id)" @click="aggiungi(annunci.id)"></i>
+                    <i class="fas fa-heart" v-else="starred.includes(annunci.id)" @click="rimuovi(annunci.id)"></i>
+                </div>
+            </div>
+            <div><span>COMPANY:</span> {{annunci.company}}</div>
+            <div><span>POSITION:</span> {{annunci.position}}</div>
+            <p><span>DESCRIPTION:</span> {{annunci.description}}</p>
+            <div><span>CREATION DATE:</span> {{annunci.created_at}}</div>
+            <div class="logo">
+                <div><span>LOGO:</span></div>
+                <img :src="annunci.logo" alt="logo">
+            </div>
+            <div><span>CITY:</span> {{annunci.city}}</div>
+            <div><span>CONTRACT:</span> {{annunci.contract}}</div>
+            <div class="button-appli" v-if="!applied.includes(annunci.id)" @click="aggiungiApply(annunci.id)">APPLY</div>
+            <div class="button-applied" v-else="applied.includes(annunci.id)">APPLIED</div>
         </div>
 
     </div>

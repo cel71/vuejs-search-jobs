@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    margin: 0 auto;
+    width: 900px;
+    text-align: center;
+    border: 3px solid black;
+    margin-bottom: 30px;
+    background-color: cadetblue;
+    color: white;
+}
+
+.box div {
+    padding: 20px;
+}
+
+.box span {
+    font-weight: bold;
+}
+
+.id i {
+    font-size: 25px;
+    color: red;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
