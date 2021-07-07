@@ -66,12 +66,8 @@ const app = new Vue (
             ],
             starred: [2, 3, 6],
             applied: [4, 5],
-
         },
         methods: {
-            preferito: function (index) {
-                this.jobIndex = index;
-            },
             aggiungi: function (index) {
                 if (!this.starred.includes(index)) {
                     this.starred.push(index);
@@ -93,9 +89,10 @@ const app = new Vue (
             },
             annuncio: function () {
                 setTimeout(() => {
+                    alert("Attendi");
                     alert("Candidatura inviata con successo");
                 }, 1000);
-            }
+            },
         },           
     },
 );

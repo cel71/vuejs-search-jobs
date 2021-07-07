@@ -14,7 +14,7 @@
     <div id="app">
 
         <div v-for="(annunci, index) in jobs" class="box">
-            <div class="id">
+            <div class="icona">
                 <h2>ANNUNCIO DI LAVORO {{annunci.id}}:</h2>
                 <div>
                     <i class="far fa-heart" v-if="!starred.includes(annunci.id)" @click="aggiungi(annunci.id)"></i>
@@ -38,6 +38,56 @@
                 <div class="button-appli" v-if="!applied.includes(annunci.id)" @click="aggiungiApply(annunci.id)">APPLY</div>
                 <div class="button-applied" v-else="applied.includes(annunci.id)">APPLIED</div>
             </div>
+        </div>
+
+        <h1>ANNUNCI SALVATI:</h1>
+
+        <div class="box-first">
+
+            <div class="box-first-inner1">
+                <h3>ANNUNCI DI LAVORO PREFERITI:</h3>
+                <div v-for="(annunci, index) in jobs" v-if="starred.includes(annunci.id)" class="box-second">
+                    <div class="icona">
+                        <h2>ANNUNCIO DI LAVORO {{annunci.id}}:</h2>
+                    </div>
+                    <div><span>COMPANY:</span> {{annunci.company}}</div>
+                    <div><span>POSITION:</span> {{annunci.position}}</div>
+                    <div class="text">
+                        <span>DESCRIPTION:</span>
+                        <p>{{annunci.description}}</p>
+                    </div>
+                    <div><span>CREATION DATE:</span> {{annunci.created_at}}</div>
+                    <div class="logo">
+                        <div><span>LOGO:</span></div>
+                        <img :src="annunci.logo" alt="logo">
+                    </div>
+                    <div><span>CITY:</span> {{annunci.city}}</div>
+                    <div><span>CONTRACT:</span> {{annunci.contract}}</div>
+                </div>
+            </div>
+
+            <div class="box-first-inner2">
+                <h3>ANNUNCI DI LAVORO SPEDITI:</h3>
+                <div v-for="(annunci, index) in jobs" v-if="applied.includes(annunci.id)" class="box-second">
+                    <div class="icona">
+                        <h2>ANNUNCIO DI LAVORO {{annunci.id}}:</h2>
+                    </div>
+                    <div><span>COMPANY:</span> {{annunci.company}}</div>
+                    <div><span>POSITION:</span> {{annunci.position}}</div>
+                    <div class="text">
+                        <span>DESCRIPTION:</span>
+                        <p>{{annunci.description}}</p>
+                    </div>
+                    <div><span>CREATION DATE:</span> {{annunci.created_at}}</div>
+                    <div class="logo">
+                        <div><span>LOGO:</span></div>
+                        <img :src="annunci.logo" alt="logo">
+                    </div>
+                    <div><span>CITY:</span> {{annunci.city}}</div>
+                    <div><span>CONTRACT:</span> {{annunci.contract}}</div>
+                </div>
+            </div>
+
         </div>
 
     </div>

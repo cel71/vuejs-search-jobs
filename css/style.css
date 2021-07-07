@@ -4,21 +4,30 @@
     padding: 0;
 }
 
+body {
+    background-color: seashell;
+}
+
 .box {
     margin: 0 auto;
     width: 900px;
     text-align: center;
     border: 4px solid black;
+    border-radius: 15px;
     margin-bottom: 30px;
     background-color: cadetblue;
     color: white;
 }
 
-.box div {
+.box:first-child {
+    margin-top: 30px;
+}
+
+.box div, .box-second div {
     padding: 20px;
 }
 
-.box span {
+.box span, .box-second span {
     font-weight: bold;
     color: springgreen;
     padding-right: 10px;
@@ -33,7 +42,7 @@
     margin-top: 20px;
 }
 
-.id i {
+.icona i {
     font-size: 25px;
     color: red;
     cursor: pointer;
@@ -65,4 +74,41 @@
 
 .button-appli {
     cursor: pointer;
+}
+
+.box-first {
+    text-align: center;
+    border: 4px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px auto;
+    width: 1000px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.box-first-inner1, .box-first-inner2 {
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.box-second {
+    text-align: center;
+    border: 4px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    background-color: cadetblue;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    color: silver;
+}
+
+h3 {
+    margin-bottom: 20px;
+    color: silver;
 }
